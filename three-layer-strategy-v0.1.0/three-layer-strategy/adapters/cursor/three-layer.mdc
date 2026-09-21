@@ -1,0 +1,11 @@
+---
+description: Three-Layer Strategy workflow for AI-driven development
+alwaysApply: true
+---
+
+Read AGENTS.md, .aidd/principles.md and .aidd/config.yaml.
+Current truth lives in .aidd/specs; proposed deltas live in .aidd/changes.
+Before implementation, require explicit intent, an execution-mode assessment and testable acceptance criteria.
+Human, assisted and agentic are per-step modes, not maturity levels.
+Respect agent boundaries and stop conditions in assessment.md.
+Completion requires evidence in verification.md.
