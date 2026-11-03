@@ -14,7 +14,9 @@ Nous mettons en place ce framework pour rendre ce choix explicite, partagé et m
 
 L'objectif n'est pas d'utiliser plus ou moins d'IA. Il est de l'utiliser là où elle a du sens.
 
+
 ---
+
 
 ## Le cadre en bref
 
@@ -22,6 +24,30 @@ Ce cadre repose sur deux idées :
 
 1. Au cadrage technique, chaque ticket reçoit un **niveau d'assistance IA**.
 2. Ce niveau fixe la place de l'IA et les contrôles à faire.
+
+---
+
+## Les skills
+
+| Skill | Quand | Ce qu'il fait |
+| --- | --- | --- |
+| `pair` | Assisted, pendant le développement | L'IA reste partenaire de réflexion et de relecture. |
+| `plan-first` | Agentic, avant de coder | Rédige un plan d'une page à faire valider avant toute exécution. |
+| `scope-check` | Après chaque itération de l'agent | Renvoie à l'agent ses écarts de périmètre jusqu'à ce que le diff colle à la demande. Rend la main à l'humain si un seuil est franchi. |
+| `digest` | Après le code, en premier | Dit si un humain peut relire le diff et, sinon, propose un découpage. |
+| `overkill` | Après le code | Signale ce qui peut être réduit : volume, fichiers, abstractions. |
+| `align` | Après le code | Signale les écarts avec les patterns et conventions déjà en place. |
+
+Les skills de relecture (`digest`, `overkill`, `align`) **évaluent le code, signalent et donnent des pistes d'amélioration, mais ne proposent en aucun cas de solution**. C'est le développeur qui décide de ce qu'il change. `scope-check` est différent : il s'adresse à l'agent qui a développé, pour qu'il corrige lui-même avant la relecture humaine.
+
+---
+
+## Installer dans un projet (10 minutes)
+
+1. Copier `AGENTS.md`, `CLAUDE.md`, `skills/` et `.gitlab/` à la racine du projet.
+2. Remplir la section **Projet** d'`AGENTS.md` : commandes, patterns de référence, zones sensibles et seuils.
+3. Pour Claude Code : `mkdir -p .claude && ln -s ../skills .claude/skills`. Les autres agents (Codex, Cursor, Copilot…) lisent `AGENTS.md` directement.
+4. Ajouter la ligne « Niveau d'assistance IA » au modèle de ticket.
 
 ---
 
@@ -35,11 +61,6 @@ Ce niveau définit :
 - le niveau de validation collective attendu avant et après le développement.
 
 L'objectif n'est pas de limiter l'usage de l'IA, mais d'adapter son niveau d'autonomie au risque, à la complexité et au niveau de compréhension nécessaire.
-
-### Utilisation des skills
-
-- Les skills sont **mutualisés dans le repository**, accessibles à toute l'équipe et versionnés comme du code.
-- Toute évolution significative d'un skill passe donc par une Merge Request.
 
 ---
 
@@ -101,28 +122,9 @@ L'objectif est volontairement de déplacer le ralentissement :
 
 ---
 
-## Les skills
-
-| Skill | Quand | Ce qu'il fait |
-| --- | --- | --- |
-| `pair` | Assisted, pendant le développement | L'IA reste partenaire de réflexion et de relecture. |
-| `plan-first` | Agentic, avant de coder | Rédige un plan d'une page à faire valider avant toute exécution. |
-| `scope-check` | Après chaque itération de l'agent | Renvoie à l'agent ses écarts de périmètre jusqu'à ce que le diff colle à la demande. Rend la main à l'humain si un seuil est franchi. |
-| `digest` | Après le code, en premier | Dit si un humain peut relire le diff et, sinon, propose un découpage. |
-| `overkill` | Après le code | Signale ce qui peut être réduit : volume, fichiers, abstractions. |
-| `align` | Après le code | Signale les écarts avec les patterns et conventions déjà en place. |
-
-Les skills de relecture (`digest`, `overkill`, `align`) **évaluent le code, signalent et donnent des pistes d'amélioration, mais ne proposent en aucun cas de solution**. C'est le développeur qui décide de ce qu'il change. `scope-check` est différent : il s'adresse à l'agent qui a développé, pour qu'il corrige lui-même avant la relecture humaine.
-
----
-
-## Installer dans un projet (10 minutes)
-
-1. Copier `AGENTS.md`, `CLAUDE.md`, `skills/` et `.gitlab/` à la racine du projet.
-2. Remplir la section **Projet** d'`AGENTS.md` : commandes, patterns de référence, zones sensibles et seuils.
-3. Pour Claude Code : `mkdir -p .claude && ln -s ../skills .claude/skills`. Les autres agents (Codex, Cursor, Copilot…) lisent `AGENTS.md` directement.
-4. Ajouter la ligne « Niveau d'assistance IA » au modèle de ticket.
-
 ## Faire évoluer le cadre
 
-Quand une même remarque revient trois fois en revue, elle mérite de devenir une règle dans `AGENTS.md` ou un skill.
+- Les skills sont **mutualisés dans le repository**, accessibles à toute l'équipe et versionnés comme du code.
+- Toute évolution significative d'un skill passe donc par une Merge Request.
+
+---
