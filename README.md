@@ -1,23 +1,5 @@
 # Cadre d'assistance IA
 
-## Manifeste
-
-La généralisation de l'IA change profondément le métier de développeur : écrire du code n'est plus la seule manière de produire une solution. Il faut désormais choisir consciemment qui doit la produire : l'humain ou la machine.
-
-Nous refusons donc un usage automatique de l'IA, tout comme nous refusons de sanctuariser le développement manuel. Chaque tâche doit commencer par une question : est-il plus pertinent que je le fasse moi-même ou que je le confie à l'IA ?
-
-Il n'existe pas de réponse universelle. Une tâche complexe peut justifier l'usage intensif d'un agent comme elle peut nécessiter une maîtrise humaine complète. Une tâche simple peut être automatisée en quelques secondes ou réalisée plus efficacement directement par un développeur. Le bon choix dépend du contexte, du risque, du besoin de compréhension, du coût de contrôle et de la valeur réelle apportée par l'automatisation.
-
-Cette décision doit également intégrer le coût de l'IA. Les tokens, les calculs et les boucles agentiques ne sont pas gratuits, ni économiquement ni environnementalement. Utiliser l'IA doit donc être un choix, pas un réflexe.
-
-Nous mettons en place ce framework pour rendre ce choix explicite, partagé et maîtrisé. Il ne définit pas ce que l'humain doit systématiquement faire ni ce que la machine doit systématiquement prendre en charge. Il crée les conditions pour décider, à chaque développement, quel niveau d'assistance est réellement pertinent.
-
-L'objectif n'est pas d'utiliser plus ou moins d'IA. Il est de l'utiliser là où elle a du sens.
-
-
----
-
-
 ## Le cadre en bref
 
 Ce cadre repose sur deux idées :
@@ -126,5 +108,21 @@ L'objectif est volontairement de déplacer le ralentissement :
 
 - Les skills sont **mutualisés dans le repository**, accessibles à toute l'équipe et versionnés comme du code.
 - Toute évolution significative d'un skill passe donc par une Merge Request.
+
+---
+
+## Manifeste
+
+La généralisation de l'IA change profondément le métier de développeur : écrire du code n'est plus la seule manière de produire une solution. Il faut désormais choisir consciemment qui doit la produire : l'humain ou la machine.
+
+Nous refusons donc un usage automatique de l'IA, tout comme nous refusons de sanctuariser le développement manuel. Chaque tâche doit commencer par une question : est-il plus pertinent que je le fasse moi-même ou que je le confie à l'IA ?
+
+Il n'existe pas de réponse universelle. Une tâche complexe peut justifier l'usage intensif d'un agent comme elle peut nécessiter une maîtrise humaine complète. Une tâche simple peut être automatisée en quelques secondes ou réalisée plus efficacement directement par un développeur. Le bon choix dépend du contexte, du risque, du besoin de compréhension, du coût de contrôle et de la valeur réelle apportée par l'automatisation.
+
+Cette décision doit également intégrer le coût de l'IA. Les tokens, les calculs et les boucles agentiques ne sont pas gratuits, ni économiquement ni environnementalement. Utiliser l'IA doit donc être un choix, pas un réflexe.
+
+Nous mettons en place ce framework pour rendre ce choix explicite, partagé et maîtrisé. Il ne définit pas ce que l'humain doit systématiquement faire ni ce que la machine doit systématiquement prendre en charge. Il crée les conditions pour décider, à chaque développement, quel niveau d'assistance est réellement pertinent.
+
+L'objectif n'est pas d'utiliser plus ou moins d'IA. Il est de l'utiliser là où elle a du sens.
 
 ---
