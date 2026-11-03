@@ -1,4 +1,4 @@
-# Cadre d'assistance IA
+# Framework 3SL
 
 ## Le cadre en bref
 
